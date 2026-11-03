@@ -17,6 +17,9 @@ A static, responsive website for GitHub Pages.
 
 Do not upload only `index.html`; the `assets` folder is required for the crest and app preview.
 
+## Vercel analytics and performance
+The site includes Vercel Web Analytics and Speed Insights scripts. In the Vercel project dashboard, enable **Analytics** and **Speed Insights**, then deploy the site. Vercel will serve the collection scripts for the deployed site; traffic and Core Web Vitals data appear in their respective dashboards after visitors arrive.
+
 ## Links already configured
 - Google Play: https://play.google.com/store/apps/details?id=com.sgvschool.app&hl=en_IN
 - School map: https://maps.app.goo.gl/m5F2Ss6jADtgurCZ9
