@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071a33">
+  <meta name="description" content="SGV School — Learn. Grow. Belong. Explore science, technology, connected learning and the SGV School app in Mangasuli and Ugar Khurd, Karnataka.">
+  <title>SGV School | Same Learners. Brighter Futures.</title>
+  <link rel="icon" href="assets/sgv-logo.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      color-scheme:dark;
+      --bg:#071a33;--bg-deep:#041328;--panel:#0c2443;--panel-2:#102c50;
+      --text:#f4f8ff;--muted:#a8bad2;--line:rgba(221,235,255,.13);
+      --blue:#75b2ff;--blue-strong:#3d83e6;--mint:#79dfc0;--white:#fff;
+      --max:1160px;--radius:26px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:86px}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.6;overflow-x:hidden}
+    body.light{color-scheme:light;--bg:#f4f8fc;--bg-deep:#e9f1fb;--panel:#fff;--panel-2:#edf4fc;--text:#10233e;--muted:#61738c;--line:rgba(16,35,62,.13)}
+    a{color:inherit;text-decoration:none}
+    button,select{font:inherit}
+    .wrap{width:min(var(--max),calc(100% - 44px));margin-inline:auto}
+    .topbar{position:sticky;top:0;z-index:30;background:rgba(7,26,51,.84);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .light .topbar{background:rgba(244,248,252,.86)}
+    .nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;align-items:center;gap:12px;min-width:max-content}
+    .brand img{width:48px;height:48px;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,.18)}
+    .brand-name{font:800 20px/1 Manrope,sans-serif;letter-spacing:-.055em}
+    .brand-sub{display:block;font-size:9px;letter-spacing:.23em;color:var(--muted);margin-top:6px;text-transform:uppercase}
+    .navlinks{display:flex;align-items:center;gap:24px;color:var(--muted);font-size:12px}
+    .navlinks a{transition:color .2s}
+    .navlinks a:hover{color:var(--text)}
+    .nav-actions{display:flex;align-items:center;gap:8px}
+    .lang{appearance:none;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:999px;padding:9px 12px;font-size:12px;cursor:pointer}
+    .theme-btn{width:38px;height:38px;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:50%;cursor:pointer}
+    .menu-btn{display:none;width:38px;height:38px;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:50%;cursor:pointer}
+    .hero{position:relative;padding:92px 0 80px;isolation:isolate}
+    .hero:before,.hero:after{content:"";position:absolute;z-index:-1;border-radius:50%;pointer-events:none;filter:blur(2px)}
+    .hero:before{width:570px;height:570px;right:-150px;top:-90px;background:radial-gradient(circle,rgba(61,131,230,.22),transparent 68%)}
+    .hero:after{width:390px;height:390px;left:-240px;bottom:-150px;background:radial-gradient(circle,rgba(121,223,192,.11),transparent 70%)}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:45px}
+    .eyebrow,.kicker{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue)}
+    .eyebrow{display:inline-flex;gap:10px;align-items:center}
+    .pulse{width:7px;height:7px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 5px rgba(121,223,192,.12),0 0 16px var(--mint)}
+    h1,h2,h3,p{margin-top:0}
+    h1,h2,h3{font-family:Manrope,sans-serif;letter-spacing:-.055em;line-height:1.08}
+    h1{font-size:clamp(48px,7.2vw,88px);max-width:760px;margin:23px 0 22px}
+    h1 .accent{color:var(--blue)}
+    .hero-copy{max-width:580px;color:var(--muted);font-size:clamp(15px,1.65vw,18px);line-height:1.75}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:13px 19px;font-size:12px;font-weight:700;transition:transform .2s,box-shadow .2s,background .2s}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:linear-gradient(110deg,#4b91ed,#7ab8ff);color:#061a33;box-shadow:0 12px 35px rgba(61,131,230,.2)}
+    .btn-primary:hover{box-shadow:0 16px 40px rgba(61,131,230,.32)}
+    .btn-secondary{border:1px solid var(--line);background:rgba(255,255,255,.025);color:var(--text)}
+    .hero-note{font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-top:26px}
+    .hero-visual{position:relative;min-height:410px;display:grid;place-items:center}
+    .visual-ring{position:absolute;width:min(100%,410px);aspect-ratio:1;border:1px solid rgba(117,178,255,.28);border-radius:50%;animation:slow-spin 38s linear infinite}
+    .visual-ring:before,.visual-ring:after{content:"";position:absolute;border:1px solid rgba(121,223,192,.23);border-radius:50%;inset:28px;transform:rotate(35deg) scaleX(1.35)}
+    .visual-ring:after{inset:65px;transform:rotate(-43deg) scaleX(1.55);border-color:rgba(117,178,255,.2)}
+    .logo-card{position:relative;width:min(65%,270px);aspect-ratio:1;border-radius:30px;overflow:hidden;box-shadow:0 34px 95px rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.2);animation:float 6s ease-in-out infinite}
+    .logo-card img{width:100%;height:100%;object-fit:cover;display:block}
+    .orbit-dot{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--mint);box-shadow:0 0 22px var(--mint);top:17%;right:16%}
+    .floating-label{position:absolute;right:0;bottom:16%;border:1px solid var(--line);background:rgba(12,36,67,.85);backdrop-filter:blur(10px);padding:13px 16px;border-radius:15px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#dcecff}
+    .light .floating-label{background:rgba(255,255,255,.88);color:#193454}
+    .floating-label strong{display:block;font:700 13px Manrope,sans-serif;color:var(--mint);letter-spacing:.03em;margin-bottom:3px}
+    .trust-line{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0}
+    .trust-items{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:10px;letter-spacing:.13em;text-transform:uppercase}
+    .trust-items span:before{content:"✦";color:var(--mint);margin-right:9px}
+    section{padding:88px 0;border-top:1px solid var(--line)}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px}
+    .kicker{margin-bottom:13px}
+    h2{font-size:clamp(34px,5vw,57px);max-width:700px;margin-bottom:0}
+    .section-copy{color:var(--muted);font-size:14px;max-width:370px;margin-bottom:2px}
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+    .card{grid-column:span 4;position:relative;overflow:hidden;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:25px;min-height:205px}
+    .card.wide{grid-column:span 6}
+    .card h3{font-size:22px;margin:20px 0 9px}
+    .card p{font-size:13px;color:var(--muted);margin-bottom:0;max-width:450px}
+    .card-no{font-size:10px;color:var(--blue);letter-spacing:.16em;font-weight:700}
+    .card-icon{width:39px;height:39px;border:1px solid var(--line);border-radius:13px;display:grid;place-items:center;color:var(--mint);font-size:18px;background:rgba(117,178,255,.07)}
+    .card.featured{background:linear-gradient(135deg,var(--panel-2),var(--panel));}
+    .card.featured:after{content:"";position:absolute;width:220px;height:220px;right:-115px;bottom:-135px;border-radius:50%;background:radial-gradient(circle,rgba(117,178,255,.25),transparent 70%)}
+    .tag-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}
+    .tag{border:1px solid var(--line);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:10px}
+    .transform{background:linear-gradient(180deg,rgba(117,178,255,.045),transparent 75%)}
+    .transform-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .transform-card{border-top:1px solid var(--line);padding:19px 16px 18px 0}
+    .transform-card .from{font-size:11px;color:var(--muted);text-decoration:line-through;opacity:.78}
+    .transform-card .to{font:700 18px/1.25 Manrope,sans-serif;margin:8px 0;color:var(--mint)}
+    .transform-card p{font-size:12px;color:var(--muted);margin:0}
+    .app-section{padding-top:100px}
+    .app-panel{display:grid;grid-template-columns:1fr .78fr;gap:45px;align-items:center;padding:clamp(25px,5vw,54px);border:1px solid var(--line);border-radius:32px;background:linear-gradient(125deg,var(--panel-2),var(--panel) 70%);overflow:hidden;position:relative}
+    .app-panel:before{content:"";position:absolute;width:480px;height:480px;left:-250px;top:-260px;border-radius:50%;background:radial-gradient(circle,rgba(121,223,192,.12),transparent 70%)}
+    .app-content{position:relative;z-index:1}
+    .app-content h2{margin:14px 0 17px}
+    .app-content>p{font-size:14px;color:var(--muted);max-width:520px}
+    .app-features{display:grid;grid-template-columns:1fr 1fr;gap:13px 20px;margin:25px 0 5px}
+    .app-feature{display:flex;gap:10px;align-items:flex-start;font-size:12px;color:var(--text)}
+    .check{width:19px;height:19px;flex:0 0 19px;border-radius:50%;background:rgba(121,223,192,.12);color:var(--mint);display:grid;place-items:center;font-size:11px}
+    .app-art{position:relative;display:flex;justify-content:center;align-items:center;min-width:0}
+    .app-art img{width:min(100%,355px);max-height:570px;object-fit:contain;filter:drop-shadow(0 28px 40px rgba(0,0,0,.35));border-radius:26px}
+    .app-caption{position:absolute;bottom:15px;left:0;right:0;text-align:center;color:#dbeaff;text-shadow:0 1px 8px #00132c;font-size:10px;letter-spacing:.15em;text-transform:uppercase}
+    .app-prompt{margin-top:17px;color:var(--muted);font-size:11px}
+    .journey{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+    .milestone{padding-top:16px;border-top:1px solid var(--line)}
+    .milestone strong{display:block;font:800 23px Manrope,sans-serif;color:var(--blue);margin-bottom:8px}
+    .milestone span{font-size:11px;color:var(--muted);display:block;line-height:1.5}
+    .campus-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .campus{padding:28px;border-radius:var(--radius);border:1px solid var(--line);background:var(--panel);min-height:225px;display:flex;flex-direction:column;justify-content:space-between}
+    .campus-label{font-size:10px;letter-spacing:.16em;color:var(--mint);text-transform:uppercase}
+    .campus h3{font:800 27px Manrope,sans-serif;letter-spacing:-.04em;margin:20px 0 7px}
+    .campus p{font-size:13px;color:var(--muted);max-width:400px}
+    .campus small{font-size:10px;color:var(--muted);letter-spacing:.04em}
+    .visit-panel{display:flex;justify-content:space-between;align-items:center;gap:25px;padding:30px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(115deg,var(--panel-2),var(--panel))}
+    .visit-panel h3{font-size:23px;margin:0 0 7px}
+    .visit-panel p{margin:0;color:var(--muted);font-size:12px}
+    footer{padding:36px 0 48px;color:var(--muted);font-size:11px}
+    .footer-row{display:flex;justify-content:space-between;gap:25px;align-items:center;flex-wrap:wrap}
+    .footer-brand{display:flex;align-items:center;gap:10px}
+    .footer-brand img{width:38px;height:38px;object-fit:cover;border-radius:10px}
+    .footer-links{display:flex;gap:18px;flex-wrap:wrap}
+    .footer-links a:hover{color:var(--text)}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:none}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+    @keyframes slow-spin{to{transform:rotate(360deg)}}
+    @media(max-width:900px){
+      .navlinks{gap:14px}.hero-grid{gap:20px}.hero-visual{min-height:340px}
+      .transform-grid{grid-template-columns:repeat(2,1fr)}.journey{grid-template-columns:repeat(3,1fr)}
+      .app-panel{grid-template-columns:1fr .7fr;gap:22px}
+    }
+    @media(max-width:700px){
+      .wrap{width:min(var(--max),calc(100% - 30px))}
+      .nav{height:68px}.navlinks{display:none;position:absolute;top:68px;left:0;right:0;padding:18px 22px 22px;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}
+      .navlinks.open{display:flex}.menu-btn{display:block}.brand img{width:42px;height:42px}
+      .hero{padding:66px 0 58px}.hero-grid{grid-template-columns:1fr;gap:10px}h1{font-size:clamp(46px,13vw,72px)}
+      .hero-visual{min-height:300px}.visual-ring{width:280px}.logo-card{width:190px;border-radius:24px}.floating-label{right:2%;bottom:9%}
+      section{padding:68px 0}.section-head{display:block}.section-copy{margin-top:15px}
+      .card,.card.wide{grid-column:span 12;min-height:auto}.app-panel{grid-template-columns:1fr}.app-art{order:-1}.app-art img{width:min(74%,300px);max-height:430px}
+      .journey{grid-template-columns:repeat(2,1fr)}.campus-grid{grid-template-columns:1fr}
+      .visit-panel{align-items:flex-start;flex-direction:column}.trust-items{gap:12px}
+    }
+    @media(max-width:420px){
+      .brand-name{font-size:18px}.brand-sub{font-size:8px}.lang{padding:8px 9px}
+      .transform-grid{grid-template-columns:1fr 1fr}.transform-card .to{font-size:16px}
+      .app-features{grid-template-columns:1fr}.journey{gap:18px 12px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="SGV School home">
+      <img src="assets/sgv-logo.jpg" alt="SGV School crest">
+      <span><span class="brand-name">SGV SCHOOL</span><span class="brand-sub">Ashok Kempi Institutions</span></span>
+    </a>
+    <nav class="navlinks" id="navlinks" aria-label="Main navigation">
+      <a href="#story" data-i18n="navStory">Our story</a>
+      <a href="#transform" data-i18n="navTransform">Our approach</a>
+      <a href="#app" data-i18n="navApp">School app</a>
+      <a href="#campuses" data-i18n="navCampus">Campuses</a>
+    </nav>
+    <div class="nav-actions">
+      <select class="lang" id="language" aria-label="Choose language">
+        <option value="en">English</option><option value="kn">ಕನ್ನಡ</option><option value="mr">मराठी</option>
+      </select>
+      <button class="theme-btn" id="themeToggle" aria-label="Toggle light and dark theme" title="Toggle theme">☼</button>
+      <button class="menu-btn" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="home">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div class="reveal">
+        <div class="eyebrow"><span class="pulse"></span><span data-i18n="eyebrow">Ashok Kempi Institutions · Est. 2007</span></div>
+        <h1 data-i18n="heroTitle">Same learners.<br><span class="accent">Brighter futures.</span></h1>
+        <p class="hero-copy" data-i18n="heroCopy">Learning rooted in values. Growing through curiosity, science and technology.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.sgvschool.app&hl=en_IN" target="_blank" rel="noopener" data-i18n="heroApp">Explore the SGV app ↗</a>
+          <a class="btn btn-secondary" href="#story" data-i18n="heroDiscover">Discover SGV</a>
+        </div>
+        <div class="hero-note" data-i18n="heroNote">Learn&nbsp; · &nbsp;Grow&nbsp; · &nbsp;Belong</div>
+      </div>
+      <div class="hero-visual reveal" aria-label="SGV School crest">
+        <div class="visual-ring"></div><div class="orbit-dot"></div>
+        <div class="logo-card"><img src="assets/sgv-logo.jpg" alt="SGV School, Ashok Kempi Institutions"></div>
+        <div class="floating-label"><strong data-i18n="floatTitle">Curiosity in motion</strong><span data-i18n="floatSub">Learn for what’s next</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust-line">
+    <div class="wrap trust-items">
+      <span data-i18n="trust1">Science & technology</span><span data-i18n="trust2">Practical learning</span><span data-i18n="trust3">Smart classrooms</span><span data-i18n="trust4">Connected school</span>
+    </div>
+  </div>
+
+  <section id="story">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><div class="kicker" data-i18n="storyKicker">01 / The SGV story</div><h2 data-i18n="storyTitle">A strong foundation.<br>A curious future.</h2></div>
+        <p class="section-copy" data-i18n="storyCopy">From a local learning initiative to a school embracing new ways to learn, grow and connect.</p>
+      </div>
+      <div class="grid">
+        <article class="card wide featured reveal">
+          <div class="card-icon">✳</div><div class="card-no">01 — OUR BELIEF</div>
+          <h3 data-i18n="beliefTitle">Every child has more to discover.</h3>
+          <p data-i18n="beliefCopy">We make room for questions, hands-on exploration and ideas that grow beyond the classroom.</p>
+          <div class="tag-row"><span class="tag">Learn</span><span class="tag">Grow</span><span class="tag">Belong</span></div>
+        </article>
+        <article class="card wide reveal">
+          <div class="card-icon">⌁</div><div class="card-no">02 — OUR COMMUNITY</div>
+          <h3 data-i18n="communityTitle">Rooted in our villages.</h3>
+          <p data-i18n="communityCopy">SGV School serves families in Mangasuli and Ugar Khurd, with a commitment to meaningful learning close to home.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="transform" class="transform">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><div class="kicker" data-i18n="transformKicker">02 / How learning is evolving</div><h2 data-i18n="transformTitle">Not just a new app.<br>A new way to connect.</h2></div>
+        <p class="section-copy" data-i18n="transformCopy">We are bringing learning, communication and technology closer to everyday school life.</p>
+      </div>
+      <div class="transform-grid reveal">
+        <div class="transform-card"><div class="from" data-i18n="from1">Memorise the answer</div><div class="to" data-i18n="to1">Understand the why.</div><p data-i18n="desc1">Ask, explore and learn by doing.</p></div>
+        <div class="transform-card"><div class="from" data-i18n="from2">One-way updates</div><div class="to" data-i18n="to2">A connected school.</div><p data-i18n="desc2">School information in one handy place.</p></div>
+        <div class="transform-card"><div class="from" data-i18n="from3">Wait for the report</div><div class="to" data-i18n="to3">See progress clearly.</div><p data-i18n="desc3">Results and academic snapshots through the app.</p></div>
+        <div class="transform-card"><div class="from" data-i18n="from4">Technology as a screen</div><div class="to" data-i18n="to4">Technology as a tool.</div><p data-i18n="desc4">Build confidence to understand and create.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="learning">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><div class="kicker" data-i18n="learningKicker">03 / Explore what’s possible</div><h2 data-i18n="learningTitle">Curiosity is the beginning.</h2></div>
+        <p class="section-copy" data-i18n="learningCopy">A learning environment shaped by doing, discovering and looking ahead.</p>
+      </div>
+      <div class="grid">
+        <article class="card reveal"><div class="card-icon">⚛</div><div class="card-no">01 / SCIENCE</div><h3 data-i18n="scienceTitle">See. Test. Understand.</h3><p data-i18n="scienceCopy">Science and mathematics experiences that help turn concepts into understanding.</p></article>
+        <article class="card reveal"><div class="card-icon">⌘</div><div class="card-no">02 / TECHNOLOGY</div><h3 data-i18n="technologyTitle">Create with technology.</h3><p data-i18n="technologyCopy">Smart classrooms and digital tools that bring new ways of exploring ideas.</p></article>
+        <article class="card reveal"><div class="card-icon">✧</div><div class="card-no">03 / ANVIKSHA</div><h3 data-i18n="anvikshaTitle">Meet Anviksha.</h3><p data-i18n="anvikshaCopy">Our AI and technology club initiative invites learners from Classes 1–10 to explore emerging ideas.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="app" class="app-section">
+    <div class="wrap">
+      <div class="app-panel reveal">
+        <div class="app-content">
+          <div class="kicker" data-i18n="appKicker">04 / The SGV School app</div>
+          <h2 data-i18n="appTitle">Your school.<br><span style="color:var(--blue)">A tap closer.</span></h2>
+          <p data-i18n="appCopy">A growing digital companion that keeps families connected with school life — from updates to academic progress.</p>
+          <div class="app-features">
+            <div class="app-feature"><span class="check">✓</span><span data-i18n="appFeature1">Results & academic performance</span></div>
+            <div class="app-feature"><span class="check">✓</span><span data-i18n="appFeature2">Reports & exam history</span></div>
+            <div class="app-feature"><span class="check">✓</span><span data-i18n="appFeature3">News, events & school updates</span></div>
+            <div class="app-feature"><span class="check">✓</span><span data-i18n="appFeature4">Class, attendance & school access</span></div>
+            <div class="app-feature"><span class="check">✓</span><span data-i18n="appFeature5">Vibes — a space for student talent</span></div>
+            <div class="app-feature"><span class="check">✓</span><span data-i18n="appFeature6">School information & location</span></div>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.sgvschool.app&hl=en_IN" target="_blank" rel="noopener" data-i18n="playStore">Get the SGV School app ↗</a>
+          </div>
+          <div class="app-prompt" data-i18n="appPrompt">Available on Google Play · Android</div>
+        </div>
+        <div class="app-art">
+          <img src="assets/sgv-app-preview.webp" alt="SGV School app interface preview showing academic performance, reports, exam history, Vibes, Class and Attendance">
+          <div class="app-caption" data-i18n="appVisualCaption">One school. More connected.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><div class="kicker" data-i18n="journeyKicker">05 / Our journey</div><h2 data-i18n="journeyTitle">Growing forward, together.</h2></div>
+        <p class="section-copy" data-i18n="journeyCopy">A few milestones in a journey that keeps moving.</p>
+      </div>
+      <div class="journey reveal">
+        <div class="milestone"><strong>2007</strong><span data-i18n="year2007">Trust established</span></div>
+        <div class="milestone"><strong>2013</strong><span data-i18n="year2013">English-medium institution in Ugar Khurd</span></div>
+        <div class="milestone"><strong>2021</strong><span data-i18n="year2021">Modern school campus in Mangasuli</span></div>
+        <div class="milestone"><strong>2024</strong><span data-i18n="year2024">Science & Mathematics Lab expansion</span></div>
+        <div class="milestone"><strong>2025</strong><span data-i18n="year2025">Smart classrooms & Anviksha AI initiative</span></div>
+        <div class="milestone"><strong>2026</strong><span data-i18n="year2026">SGV School app introduced</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="campuses">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div><div class="kicker" data-i18n="campusKicker">06 / Find SGV</div><h2 data-i18n="campusTitle">Close to home.<br>Open to the world.</h2></div>
+        <p class="section-copy" data-i18n="campusCopy">Two communities. One shared belief in brighter futures.</p>
+      </div>
+      <div class="campus-grid">
+        <article class="campus reveal"><div><div class="campus-label" data-i18n="mainCampus">Main campus</div><h3>Mangasuli</h3><p data-i18n="mainCopy">Kindergarten, Primary and High School — with spaces for science, mathematics and technology learning.</p></div><small>Kagwad Taluk · Belagavi, Karnataka</small></article>
+        <article class="campus reveal"><div><div class="campus-label" data-i18n="secondCampus">Second campus</div><h3>Ugar Khurd</h3><p data-i18n="secondCopy">A Kindergarten campus for young learners and families in the Ugar Khurd community.</p></div><small>Belagavi District · Karnataka</small></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit">
+    <div class="wrap">
+      <div class="visit-panel reveal">
+        <div><h3 data-i18n="visitTitle">Come curious. Leave inspired.</h3><p data-i18n="visitCopy">Explore the SGV School app or plan a visit to our campus.</p></div>
+        <div class="cta-row" style="margin:0">
+          <a class="btn btn-primary" href="https://maps.app.goo.gl/m5F2Ss6jADtgurCZ9" target="_blank" rel="noopener" data-i18n="mapLink">Find us on Maps ↗</a>
+          <a class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.sgvschool.app&hl=en_IN" target="_blank" rel="noopener" data-i18n="appLink">Open the app ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <div class="footer-brand"><img src="assets/sgv-logo.jpg" alt=""><div><strong style="color:var(--text);font:700 14px Manrope">SGV SCHOOL</strong><div data-i18n="footerTag">Learn · Grow · Belong</div></div></div>
+    <div class="footer-links"><a href="#story" data-i18n="navStory">Our story</a><a href="#app" data-i18n="navApp">School app</a><a href="https://maps.app.goo.gl/m5F2Ss6jADtgurCZ9" target="_blank" rel="noopener" data-i18n="footerMap">Location</a></div>
+    <div>© <span id="year"></span> Ashok Kempi Institutions</div>
+  </div>
+</footer>
+
+<script>
+const translations = {
+  en: {
+    navStory:"Our story",navTransform:"Our approach",navApp:"School app",navCampus:"Campuses",
+    eyebrow:"Ashok Kempi Institutions · Est. 2007",heroTitle:'Same learners.<br><span class="accent">Brighter futures.</span>',heroCopy:"Learning rooted in values. Growing through curiosity, science and technology.",heroApp:"Explore the SGV app ↗",heroDiscover:"Discover SGV",heroNote:"Learn · Grow · Belong",floatTitle:"Curiosity in motion",floatSub:"Learn for what’s next",
+    trust1:"Science & technology",trust2:"Practical learning",trust3:"Smart classrooms",trust4:"Connected school",
+    storyKicker:"01 / The SGV story",storyTitle:"A strong foundation.<br>A curious future.",storyCopy:"From a local learning initiative to a school embracing new ways to learn, grow and connect.",beliefTitle:"Every child has more to discover.",beliefCopy:"We make room for questions, hands-on exploration and ideas that grow beyond the classroom.",communityTitle:"Rooted in our villages.",communityCopy:"SGV School serves families in Mangasuli and Ugar Khurd, with a commitment to meaningful learning close to home.",
+    transformKicker:"02 / How learning is evolving",transformTitle:"Not just a new app.<br>A new way to connect.",transformCopy:"We are bringing learning, communication and technology closer to everyday school life.",from1:"Memorise the answer",to1:"Understand the why.",desc1:"Ask, explore and learn by doing.",from2:"One-way updates",to2:"A connected school.",desc2:"School information in one handy place.",from3:"Wait for the report",to3:"See progress clearly.",desc3:"Results and academic snapshots through the app.",from4:"Technology as a screen",to4:"Technology as a tool.",desc4:"Build confidence to understand and create.",
+    learningKicker:"03 / Explore what’s possible",learningTitle:"Curiosity is the beginning.",learningCopy:"A learning environment shaped by doing, discovering and looking ahead.",scienceTitle:"See. Test. Understand.",scienceCopy:"Science and mathematics experiences that help turn concepts into understanding.",technologyTitle:"Create with technology.",technologyCopy:"Smart classrooms and digital tools that bring new ways of exploring ideas.",anvikshaTitle:"Meet Anviksha.",anvikshaCopy:"Our AI and technology club initiative invites learners from Classes 1–10 to explore emerging ideas.",
+    appKicker:"04 / The SGV School app",appTitle:'Your school.<br><span style="color:var(--blue)">A tap closer.</span>',appCopy:"A growing digital companion that keeps families connected with school life — from updates to academic progress.",appFeature1:"Results & academic performance",appFeature2:"Reports & exam history",appFeature3:"News, events & school updates",appFeature4:"Class, attendance & school access",appFeature5:"Vibes — a space for student talent",appFeature6:"School information & location",playStore:"Get the SGV School app ↗",appPrompt:"Available on Google Play · Android",appVisualCaption:"One school. More connected.",
+    journeyKicker:"05 / Our journey",journeyTitle:"Growing forward, together.",journeyCopy:"A few milestones in a journey that keeps moving.",year2007:"Trust established",year2013:"English-medium institution in Ugar Khurd",year2021:"Modern school campus in Mangasuli",year2024:"Science & Mathematics Lab expansion",year2025:"Smart classrooms & Anviksha AI initiative",year2026:"SGV School app introduced",
+    campusKicker:"06 / Find SGV",campusTitle:"Close to home.<br>Open to the world.",campusCopy:"Two communities. One shared belief in brighter futures.",mainCampus:"Main campus",mainCopy:"Kindergarten, Primary and High School — with spaces for science, mathematics and technology learning.",secondCampus:"Second campus",secondCopy:"A Kindergarten campus for young learners and families in the Ugar Khurd community.",
+    visitTitle:"Come curious. Leave inspired.",visitCopy:"Explore the SGV School app or plan a visit to our campus.",mapLink:"Find us on Maps ↗",appLink:"Open the app ↗",footerTag:"Learn · Grow · Belong",footerMap:"Location"
+  },
+  kn: {
+    navStory:"ನಮ್ಮ ಕಥೆ",navTransform:"ನಮ್ಮ ಕಲಿಕಾ ವಿಧಾನ",navApp:"ಶಾಲೆಯ ಆ್ಯಪ್",navCampus:"ಶಾಖೆಗಳು",
+    eyebrow:"ಅಶೋಕ್ ಕೆಂಪಿ ಸಂಸ್ಥೆಗಳು · ಸ್ಥಾಪನೆ 2007",heroTitle:'ಅದೇ ಕಲಿಯುವ ಮಕ್ಕಳು.<br><span class="accent">ಹೆಚ್ಚು ಪ್ರಕಾಶಮಾನ ಭವಿಷ್ಯ.</span>',heroCopy:"ಮೌಲ್ಯಗಳಲ್ಲಿ ಬೇರುಬಿಟ್ಟ ಕಲಿಕೆ. ಕುತೂಹಲ, ವಿಜ್ಞಾನ ಮತ್ತು ತಂತ್ರಜ್ಞಾನದೊಂದಿಗೆ ಬೆಳವಣಿಗೆ.",heroApp:"SGV ಆ್ಯಪ್ ಅನ್ವೇಷಿಸಿ ↗",heroDiscover:"SGV ಬಗ್ಗೆ ತಿಳಿಯಿರಿ",heroNote:"ಕಲಿಯಿರಿ · ಬೆಳೆಯಿರಿ · ಒಂದಾಗಿರಿ",floatTitle:"ಚಲನೆಯಲ್ಲಿರುವ ಕುತೂಹಲ",floatSub:"ಮುಂದಿನದಕ್ಕಾಗಿ ಕಲಿಯಿರಿ",
+    trust1:"ವಿಜ್ಞಾನ ಮತ್ತು ತಂತ್ರಜ್ಞಾನ",trust2:"ಪ್ರಾಯೋಗಿಕ ಕಲಿಕೆ",trust3:"ಸ್ಮಾರ್ಟ್ ತರಗತಿಗಳು",trust4:"ಸಂಪರ್ಕಿತ ಶಾಲೆ",
+    storyKicker:"01 / SGV ಕಥೆ",storyTitle:"ಬಲವಾದ ಅಡಿಪಾಯ.<br>ಕುತೂಹಲದ ಭವಿಷ್ಯ.",storyCopy:"ಸ್ಥಳೀಯ ಕಲಿಕಾ ಪ್ರಯತ್ನದಿಂದ ಹೊಸ ರೀತಿಯಲ್ಲಿ ಕಲಿಯಲು, ಬೆಳೆಯಲು ಮತ್ತು ಸಂಪರ್ಕಿಸಲು ಮುಂದಾಗಿರುವ ಶಾಲೆಯವರೆಗೆ.",beliefTitle:"ಪ್ರತಿ ಮಗುವೂ ಇನ್ನಷ್ಟು ಅನ್ವೇಷಿಸಬಹುದು.",beliefCopy:"ಪ್ರಶ್ನೆಗಳು, ಕೈಚಳಕದ ಅನ್ವೇಷಣೆ ಮತ್ತು ತರಗತಿಯಾಚೆ ಬೆಳೆಯುವ ಆಲೋಚನೆಗಳಿಗೆ ನಾವು ಅವಕಾಶ ನೀಡುತ್ತೇವೆ.",communityTitle:"ನಮ್ಮ ಊರುಗಳೊಂದಿಗೆ ಬೆಸೆದ ಶಾಲೆ.",communityCopy:"ಮಂಗಸೂಳಿ ಮತ್ತು ಉಗಾರ ಖುರ್ದ್ ಕುಟುಂಬಗಳಿಗೆ ಹತ್ತಿರದಲ್ಲೇ ಅರ್ಥಪೂರ್ಣ ಕಲಿಕೆಯನ್ನು SGV ಒದಗಿಸುತ್ತದೆ.",
+    transformKicker:"02 / ಬದಲಾಗುತ್ತಿರುವ ಕಲಿಕೆ",transformTitle:"ಹೊಸ ಆ್ಯಪ್ ಮಾತ್ರವಲ್ಲ.<br>ಸಂಪರ್ಕಿಸುವ ಹೊಸ ವಿಧಾನ.",transformCopy:"ಕಲಿಕೆ, ಸಂವಹನ ಮತ್ತು ತಂತ್ರಜ್ಞಾನವನ್ನು ಶಾಲೆಯ ದೈನಂದಿನ ಬದುಕಿಗೆ ಇನ್ನಷ್ಟು ಹತ್ತಿರ ತರುತ್ತಿದ್ದೇವೆ.",from1:"ಉತ್ತರವನ್ನು ಕಂಠಪಾಠ",to1:"ಕಾರಣವನ್ನು ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.",desc1:"ಪ್ರಶ್ನಿಸಿ, ಅನ್ವೇಷಿಸಿ, ಮಾಡಿ ಕಲಿಯಿರಿ.",from2:"ಒಂದು ದಿಕ್ಕಿನ ಮಾಹಿತಿ",to2:"ಸಂಪರ್ಕಿತ ಶಾಲೆ.",desc2:"ಶಾಲೆಯ ಮಾಹಿತಿ ಒಂದೇ ಸುಲಭ ಸ್ಥಳದಲ್ಲಿ.",from3:"ವರದಿಗಾಗಿ ಕಾಯಿರಿ",to3:"ಪ್ರಗತಿಯನ್ನು ಸ್ಪಷ್ಟವಾಗಿ ನೋಡಿ.",desc3:"ಆ್ಯಪ್‌ನಲ್ಲಿ ಫಲಿತಾಂಶ ಮತ್ತು ಶೈಕ್ಷಣಿಕ ಮಾಹಿತಿ.",from4:"ಪರದೆಯಷ್ಟೇ ತಂತ್ರಜ್ಞಾನ",to4:"ಸೃಷ್ಟಿಗೆ ಒಂದು ಸಾಧನ.",desc4:"ಅರ್ಥಮಾಡಿಕೊಳ್ಳಲು ಮತ್ತು ಸೃಷ್ಟಿಸಲು ಆತ್ಮವಿಶ್ವಾಸ ಬೆಳೆಸಿ.",
+    learningKicker:"03 / ಸಾಧ್ಯತೆಗಳನ್ನು ಅನ್ವೇಷಿಸಿ",learningTitle:"ಕುತೂಹಲವೇ ಆರಂಭ.",learningCopy:"ಮಾಡುತ್ತಾ, ಕಂಡುಹಿಡಿಯುತ್ತಾ ಮತ್ತು ಮುಂದಿನದನ್ನು ಯೋಚಿಸುತ್ತಾ ಕಲಿಯುವ ವಾತಾವರಣ.",scienceTitle:"ನೋಡಿ. ಪರೀಕ್ಷಿಸಿ. ಅರ್ಥಮಾಡಿಕೊಳ್ಳಿ.",scienceCopy:"ವಿಜ್ಞಾನ ಮತ್ತು ಗಣಿತದ ಅನುಭವಗಳು ವಿಷಯಗಳನ್ನು ನಿಜವಾದ ತಿಳುವಳಿಕೆಯಾಗಿಸುತ್ತವೆ.",technologyTitle:"ತಂತ್ರಜ್ಞಾನದೊಂದಿಗೆ ಸೃಷ್ಟಿಸಿ.",technologyCopy:"ಸ್ಮಾರ್ಟ್ ತರಗತಿಗಳು ಮತ್ತು ಡಿಜಿಟಲ್ ಸಾಧನಗಳು ಹೊಸ ರೀತಿಯಲ್ಲಿ ಆಲೋಚನೆಗಳನ್ನು ಅನ್ವೇಷಿಸಲು ನೆರವಾಗುತ್ತವೆ.",anvikshaTitle:"ಅನ್ವೀಕ್ಷಾವನ್ನು ಪರಿಚಯಿಸಿಕೊಳ್ಳಿ.",anvikshaCopy:"ನಮ್ಮ AI ಮತ್ತು ತಂತ್ರಜ್ಞಾನ ಕ್ಲಬ್ ಉಪಕ್ರಮವು 1ರಿಂದ 10ನೇ ತರಗತಿಯ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಹೊಸ ಆಲೋಚನೆಗಳನ್ನು ಅನ್ವೇಷಿಸಲು ಆಹ್ವಾನಿಸುತ್ತದೆ.",
+    appKicker:"04 / SGV ಶಾಲೆಯ ಆ್ಯಪ್",appTitle:'ನಿಮ್ಮ ಶಾಲೆ.<br><span style="color:var(--blue)">ಒಂದು ಸ್ಪರ್ಶದಷ್ಟು ಹತ್ತಿರ.</span>',appCopy:"ಶಾಲೆಯ ಮಾಹಿತಿಯಿಂದ ಶೈಕ್ಷಣಿಕ ಪ್ರಗತಿಯವರೆಗೆ ಕುಟುಂಬಗಳನ್ನು ಶಾಲಾ ಜೀವನದೊಂದಿಗೆ ಸಂಪರ್ಕಿಸುವ ಡಿಜಿಟಲ್ ಸಹಯೋಗಿ.",appFeature1:"ಫಲಿತಾಂಶ ಮತ್ತು ಶೈಕ್ಷಣಿಕ ಸಾಧನೆ",appFeature2:"ವರದಿಗಳು ಮತ್ತು ಪರೀಕ್ಷಾ ಇತಿಹಾಸ",appFeature3:"ಸುದ್ದಿ, ಕಾರ್ಯಕ್ರಮಗಳು ಮತ್ತು ಶಾಲಾ ಮಾಹಿತಿ",appFeature4:"ತರಗತಿ, ಹಾಜರಾತಿ ಮತ್ತು ಶಾಲಾ ಸೇವೆಗಳು",appFeature5:"ವೈಬ್ಸ್ — ವಿದ್ಯಾರ್ಥಿಗಳ ಪ್ರತಿಭೆಗೆ ವೇದಿಕೆ",appFeature6:"ಶಾಲೆಯ ಮಾಹಿತಿ ಮತ್ತು ಸ್ಥಳ",playStore:"SGV ಶಾಲೆಯ ಆ್ಯಪ್ ಪಡೆಯಿರಿ ↗",appPrompt:"Google Play ನಲ್ಲಿ ಲಭ್ಯ · Android",appVisualCaption:"ಒಂದು ಶಾಲೆ. ಇನ್ನಷ್ಟು ಸಂಪರ್ಕ.",
+    journeyKicker:"05 / ನಮ್ಮ ಪಯಣ",journeyTitle:"ಒಟ್ಟಾಗಿ ಮುಂದಕ್ಕೆ ಬೆಳೆಯೋಣ.",journeyCopy:"ಮುಂದುವರಿಯುತ್ತಿರುವ ಪಯಣದ ಕೆಲವು ಮೈಲಿಗಲ್ಲುಗಳು.",year2007:"ಟ್ರಸ್ಟ್ ಸ್ಥಾಪನೆ",year2013:"ಉಗಾರ ಖುರ್ದ್‌ನಲ್ಲಿ ಇಂಗ್ಲಿಷ್ ಮಾಧ್ಯಮ ಸಂಸ್ಥೆ",year2021:"ಮಂಗಸೂಳಿಯಲ್ಲಿ ಆಧುನಿಕ ಶಾಲಾ ಆವರಣ",year2024:"ವಿಜ್ಞಾನ ಮತ್ತು ಗಣಿತ ಪ್ರಯೋಗಾಲಯ ವಿಸ್ತರಣೆ",year2025:"ಸ್ಮಾರ್ಟ್ ತರಗತಿಗಳು ಮತ್ತು ಅನ್ವೀಕ್ಷಾ AI ಉಪಕ್ರಮ",year2026:"SGV ಶಾಲೆಯ ಆ್ಯಪ್ ಪರಿಚಯ",
+    campusKicker:"06 / SGV ವಿಳಾಸ",campusTitle:"ಮನೆಯ ಹತ್ತಿರ.<br>ಜಗತ್ತಿಗೆ ತೆರೆದಿದೆ.",campusCopy:"ಎರಡು ಸಮುದಾಯಗಳು. ಪ್ರಕಾಶಮಾನ ಭವಿಷ್ಯದ ಒಂದೇ ನಂಬಿಕೆ.",mainCampus:"ಮುಖ್ಯ ಆವರಣ",mainCopy:"ಶಿಶುವಿಹಾರ, ಪ್ರಾಥಮಿಕ ಮತ್ತು ಪ್ರೌಢಶಾಲೆ — ವಿಜ್ಞಾನ, ಗಣಿತ ಮತ್ತು ತಂತ್ರಜ್ಞಾನ ಕಲಿಕೆಗೆ ಸ್ಥಳಗಳೊಂದಿಗೆ.",secondCampus:"ಎರಡನೇ ಆವರಣ",secondCopy:"ಉಗಾರ ಖುರ್ದ್ ಸಮುದಾಯದ ಪುಟ್ಟ ಮಕ್ಕಳಿಗಾಗಿ ಶಿಶುವಿಹಾರ ಶಾಖೆ.",
+    visitTitle:"ಕುತೂಹಲದಿಂದ ಬನ್ನಿ. ಪ್ರೇರಣೆಯಿಂದ ಹಿಂದಿರುಗಿ.",visitCopy:"SGV ಶಾಲೆಯ ಆ್ಯಪ್ ಅನ್ವೇಷಿಸಿ ಅಥವಾ ನಮ್ಮ ಆವರಣಕ್ಕೆ ಭೇಟಿ ನೀಡಿ.",mapLink:"ನಕ್ಷೆಯಲ್ಲಿ ನಮ್ಮನ್ನು ಕಂಡುಹಿಡಿಯಿರಿ ↗",appLink:"ಆ್ಯಪ್ ತೆರೆಯಿರಿ ↗",footerTag:"ಕಲಿಯಿರಿ · ಬೆಳೆಯಿರಿ · ಒಂದಾಗಿರಿ",footerMap:"ಸ್ಥಳ"
+  },
+  mr: {
+    navStory:"आमची गोष्ट",navTransform:"आमची शिक्षणपद्धती",navApp:"शाळेचे ॲप",navCampus:"शाखा",
+    eyebrow:"अशोक केम्पी संस्था · स्थापना २००७",heroTitle:'तेच विद्यार्थी.<br><span class="accent">अधिक उज्ज्वल भविष्य.</span>',heroCopy:"मूल्यांवर आधारलेले शिक्षण. जिज्ञासा, विज्ञान आणि तंत्रज्ञानासोबत प्रगती.",heroApp:"SGV ॲप जाणून घ्या ↗",heroDiscover:"SGV बद्दल जाणून घ्या",heroNote:"शिका · वाढा · जोडलेले राहा",floatTitle:"जिज्ञासेला नवी दिशा",floatSub:"उद्याच्या तयारीसाठी शिका",
+    trust1:"विज्ञान आणि तंत्रज्ञान",trust2:"कृतीशील शिक्षण",trust3:"स्मार्ट वर्गखोल्या",trust4:"डिजिटल शाळा",
+    storyKicker:"01 / SGV ची गोष्ट",storyTitle:"मजबूत पाया.<br>जिज्ञासू भविष्य.",storyCopy:"स्थानिक शिक्षण उपक्रमापासून शिकण्याच्या, वाढण्याच्या आणि जोडले जाण्याच्या नव्या पद्धती स्वीकारणाऱ्या शाळेपर्यंतचा प्रवास.",beliefTitle:"प्रत्येक मुलाला अजून खूप काही शोधायचे आहे.",beliefCopy:"प्रश्न, प्रत्यक्ष अनुभव आणि वर्गखोलीच्या पलीकडे जाणाऱ्या कल्पनांना आम्ही वाव देतो.",communityTitle:"आपल्या गावांशी घट्ट नाते.",communityCopy:"मांगसुळी आणि उगार खुर्द येथील कुटुंबांसाठी घराजवळ अर्थपूर्ण शिक्षण देण्याचा SGV चा प्रयत्न आहे.",
+    transformKicker:"02 / बदलते शिक्षण",transformTitle:"फक्त नवीन ॲप नाही.<br>जोडण्याची नवी पद्धत.",transformCopy:"शिक्षण, संवाद आणि तंत्रज्ञान दैनंदिन शालेय जीवनाच्या अधिक जवळ आणत आहोत.",from1:"उत्तर पाठ करणे",to1:"कारण समजून घेणे.",desc1:"प्रश्न विचारा, शोधा आणि कृतीतून शिका.",from2:"एकतर्फी सूचना",to2:"जोडलेली शाळा.",desc2:"शाळेची माहिती एकाच सोयीच्या ठिकाणी.",from3:"निकालाची वाट पाहणे",to3:"प्रगती स्पष्ट पाहणे.",desc3:"ॲपमधून निकाल आणि शैक्षणिक माहिती.",from4:"तंत्रज्ञान म्हणजे स्क्रीन",to4:"तंत्रज्ञान म्हणजे साधन.",desc4:"समजून घेण्याचा आणि निर्माण करण्याचा आत्मविश्वास.",
+    learningKicker:"03 / नव्या शक्यता",learningTitle:"जिज्ञासेतून सुरुवात होते.",learningCopy:"कृती, शोध आणि भविष्याचा विचार यांमधून घडणारे शिक्षण.",scienceTitle:"पाहा. तपासा. समजून घ्या.",scienceCopy:"विज्ञान आणि गणिताचे अनुभव संकल्पना समजून घेण्यास मदत करतात.",technologyTitle:"तंत्रज्ञानातून निर्मिती.",technologyCopy:"स्मार्ट वर्गखोल्या आणि डिजिटल साधने कल्पना शोधण्याचे नवे मार्ग उघडतात.",anvikshaTitle:"अन्विक्षाची ओळख.",anvikshaCopy:"आमचा AI आणि तंत्रज्ञान क्लब इयत्ता १ ते १० च्या विद्यार्थ्यांना नव्या कल्पना शोधण्यासाठी आमंत्रित करतो.",
+    appKicker:"04 / SGV School ॲप",appTitle:'तुमची शाळा.<br><span style="color:var(--blue)">एका स्पर्शावर.</span>',appCopy:"शाळेच्या अपडेट्सपासून शैक्षणिक प्रगतीपर्यंत — कुटुंबांना शालेय जीवनाशी जोडणारा डिजिटल साथीदार.",appFeature1:"निकाल आणि शैक्षणिक कामगिरी",appFeature2:"अहवाल आणि परीक्षेचा इतिहास",appFeature3:"बातम्या, कार्यक्रम आणि शाळेचे अपडेट्स",appFeature4:"वर्ग, उपस्थिती आणि शाळेची माहिती",appFeature5:"Vibes — विद्यार्थ्यांच्या कलागुणांसाठी व्यासपीठ",appFeature6:"शाळेची माहिती आणि ठिकाण",playStore:"SGV School ॲप मिळवा ↗",appPrompt:"Google Play वर उपलब्ध · Android",appVisualCaption:"एक शाळा. अधिक जोडलेपण.",
+    journeyKicker:"05 / आमचा प्रवास",journeyTitle:"एकत्रितपणे पुढे वाटचाल.",journeyCopy:"सतत पुढे जाणाऱ्या प्रवासातील काही महत्त्वाचे टप्पे.",year2007:"ट्रस्टची स्थापना",year2013:"उगार खुर्द येथे इंग्रजी माध्यम संस्था",year2021:"मांगसुळी येथे आधुनिक शाळेचा परिसर",year2024:"विज्ञान आणि गणित प्रयोगशाळेचा विस्तार",year2025:"स्मार्ट वर्गखोल्या आणि अन्विक्षा AI उपक्रम",year2026:"SGV School ॲपची सुरुवात",
+    campusKicker:"06 / SGV कुठे आहे?",campusTitle:"घराच्या जवळ.<br>जगासाठी खुले.",campusCopy:"दोन गावे. उज्ज्वल भविष्याचा एकच विश्वास.",mainCampus:"मुख्य शाखा",mainCopy:"बालवाडी, प्राथमिक आणि माध्यमिक शाळा — विज्ञान, गणित आणि तंत्रज्ञान शिक्षणासाठी सुविधा.",secondCampus:"दुसरी शाखा",secondCopy:"उगार खुर्द परिसरातील लहान विद्यार्थ्यांसाठी बालवाडी शाखा.",
+    visitTitle:"जिज्ञासेने या. प्रेरणा घेऊन जा.",visitCopy:"SGV School ॲप पाहा किंवा आमच्या शाळेला भेट द्या.",mapLink:"नकाशावर आम्हाला शोधा ↗",appLink:"ॲप उघडा ↗",footerTag:"शिका · वाढा · जोडलेले राहा",footerMap:"ठिकाण"
+  }
+};
+const languageSelect=document.getElementById("language");
+function setLanguage(lang){
+  const dict=translations[lang]||translations.en;
+  document.documentElement.lang=lang;
+  document.body.classList.toggle("lang-kn",lang==="kn");
+  document.body.classList.toggle("lang-mr",lang==="mr");
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key=el.dataset.i18n;
+    if(Object.prototype.hasOwnProperty.call(dict,key)) el.innerHTML=dict[key];
+  });
+  localStorage.setItem("sgv-language",lang);
+}
+languageSelect.addEventListener("change",e=>setLanguage(e.target.value));
+const savedLang=localStorage.getItem("sgv-language")||"en";
+languageSelect.value=savedLang;setLanguage(savedLang);
+document.getElementById("themeToggle").addEventListener("click",()=>{
+  document.body.classList.toggle("light");
+  localStorage.setItem("sgv-theme",document.body.classList.contains("light")?"light":"dark");
+});
+if(localStorage.getItem("sgv-theme")==="light")document.body.classList.add("light");
+document.getElementById("year").textContent=new Date().getFullYear();
+const menuToggle=document.getElementById("menuToggle"),navlinks=document.getElementById("navlinks");
+menuToggle.addEventListener("click",()=>{
+  const open=navlinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded",String(open));
+  menuToggle.textContent=open?"×":"☰";
+});
+navlinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+  navlinks.classList.remove("open");menuToggle.setAttribute("aria-expanded","false");menuToggle.textContent="☰";
+}));
+if("IntersectionObserver" in window){
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target);}});
+  },{threshold:.12});
+  document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+}else{document.querySelectorAll(".reveal").forEach(el=>el.classList.add("visible"));}
+</script>
+</body>
+</html>
