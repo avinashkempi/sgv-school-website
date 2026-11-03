@@ -70,11 +70,12 @@
       --max:1160px;--radius:26px;
     }
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:86px}
+    html{scroll-behavior:smooth;scroll-padding-top:86px;overflow-x:clip}
     body{margin:0;background:var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.6;overflow-x:hidden}
-    body.light{color-scheme:light;--bg:#f4f8fc;--bg-deep:#e9f1fb;--panel:#fff;--panel-2:#edf4fc;--text:#10233e;--muted:#61738c;--line:rgba(16,35,62,.13)}
+    body.light{color-scheme:light;--bg:#f4f8fc;--bg-deep:#e9f1fb;--panel:#fff;--panel-2:#edf4fc;--text:#10233e;--muted:#61738c;--line:rgba(16,35,62,.13);--blue:#2768ad;--mint:#087b65}
     a{color:inherit;text-decoration:none}
     button,select{font:inherit}
+    a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
     .wrap{width:min(var(--max),calc(100% - 44px));margin-inline:auto}
     .topbar{position:sticky;top:0;z-index:30;background:rgba(7,26,51,.84);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
     .light .topbar{background:rgba(244,248,252,.86)}
@@ -104,7 +105,7 @@
     h1 .accent{color:var(--blue)}
     .hero-copy{max-width:580px;color:var(--muted);font-size:clamp(15px,1.65vw,18px);line-height:1.75}
     .cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:13px 19px;font-size:12px;font-weight:700;transition:transform .2s,box-shadow .2s,background .2s}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;border-radius:999px;padding:13px 19px;font-size:12px;font-weight:700;transition:transform .2s,box-shadow .2s,background .2s}
     .btn:hover{transform:translateY(-2px)}
     .btn-primary{background:linear-gradient(110deg,#4b91ed,#7ab8ff);color:#061a33;box-shadow:0 12px 35px rgba(61,131,230,.2)}
     .btn-primary:hover{box-shadow:0 16px 40px rgba(61,131,230,.32)}
@@ -177,8 +178,8 @@
     .footer-brand img{width:38px;height:38px;object-fit:cover;border-radius:10px}
     .footer-links{display:flex;gap:18px;flex-wrap:wrap}
     .footer-links a:hover{color:var(--text)}
-    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
-    .reveal.visible{opacity:1;transform:none}
+    .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .js .reveal.visible{opacity:1;transform:none}
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
     @keyframes slow-spin{to{transform:rotate(360deg)}}
     @media(max-width:900px){
@@ -188,8 +189,10 @@
     }
     @media(max-width:700px){
       .wrap{width:min(var(--max),calc(100% - 30px))}
-      .nav{height:68px}.navlinks{display:none;position:absolute;top:68px;left:0;right:0;padding:18px 22px 22px;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}
-      .navlinks.open{display:flex}.menu-btn{display:block}.brand img{width:42px;height:42px}
+      .nav{height:68px;gap:8px}.navlinks{display:none;position:absolute;top:68px;left:0;right:0;padding:12px 22px 18px;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 16px 24px rgba(0,0,0,.15);flex-direction:column;align-items:stretch}
+      .navlinks.open{display:flex}.navlinks a{display:flex;align-items:center;min-height:48px;width:100%}
+      .menu-btn{display:block;width:44px;height:44px;flex:0 0 44px}.theme-btn{width:44px;height:44px;flex:0 0 44px}
+      .lang{min-height:44px}.brand{min-width:0}.brand img{width:42px;height:42px}
       .hero{padding:66px 0 58px}.hero-grid{grid-template-columns:1fr;gap:10px}h1{font-size:clamp(46px,13vw,72px)}
       .hero-visual{min-height:300px}.visual-ring{width:280px}.logo-card{width:190px;border-radius:24px}.floating-label{right:2%;bottom:9%}
       section{padding:68px 0}.section-head{display:block}.section-copy{margin-top:15px}
@@ -198,13 +201,22 @@
       .visit-panel{align-items:flex-start;flex-direction:column}.trust-items{gap:12px}
     }
     @media(max-width:420px){
-      .brand-name{font-size:18px}.brand-sub{font-size:8px}.lang{padding:8px 9px}
+      .brand-name{font-size:16px}.brand-sub{font-size:8px}.lang{width:76px;padding:6px 5px;font-size:16px}
       .transform-grid{grid-template-columns:1fr 1fr}.transform-card .to{font-size:16px}
       .app-features{grid-template-columns:1fr}.journey{gap:18px 12px}
     }
+    @media(max-width:380px){
+      .nav{gap:4px}.brand{gap:4px}.brand img{width:32px;height:32px}
+      .brand-name{font-size:13px}.brand-sub{display:none}
+      .nav-actions{gap:2px}.lang{width:64px}
+      .menu-btn,.theme-btn{width:44px;height:44px;flex-basis:44px}
+    }
+    @media(max-width:360px){
+      .transform-grid{grid-template-columns:1fr}
+    }
     @media(prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-      .reveal{opacity:1;transform:none}
+      .js .reveal{opacity:1;transform:none}
     }
   </style>
 </head>
@@ -226,7 +238,7 @@
         <option value="en">English</option><option value="kn">ಕನ್ನಡ</option><option value="mr">मराठी</option>
       </select>
       <button class="theme-btn" id="themeToggle" aria-label="Toggle light and dark theme" title="Toggle theme">☼</button>
-      <button class="menu-btn" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <button class="menu-btn" id="menuToggle" aria-label="Toggle navigation" aria-controls="navlinks" aria-expanded="false">☰</button>
     </div>
   </div>
 </header>
@@ -330,7 +342,7 @@
           <div class="app-prompt" data-i18n="appPrompt">Available on Google Play · Android</div>
         </div>
         <div class="app-art">
-          <img src="assets/sgv-app-preview.webp" alt="SGV School app interface preview showing academic performance, reports, exam history, Vibes, Class and Attendance">
+          <img src="assets/sgv-app-preview.webp" alt="SGV School app interface preview showing academic performance, reports, exam history, Vibes, Class and Attendance" loading="lazy" decoding="async">
           <div class="app-caption" data-i18n="appVisualCaption">One school. More connected.</div>
         </div>
       </div>
@@ -454,13 +466,21 @@ menuToggle.addEventListener("click",()=>{
   menuToggle.setAttribute("aria-expanded",String(open));
   menuToggle.textContent=open?"×":"☰";
 });
-navlinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{
+function closeNavigation(){
   navlinks.classList.remove("open");menuToggle.setAttribute("aria-expanded","false");menuToggle.textContent="☰";
-}));
+}
+navlinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",closeNavigation));
+document.addEventListener("keydown",event=>{
+  if(event.key==="Escape"&&navlinks.classList.contains("open")){
+    closeNavigation();
+    menuToggle.focus();
+  }
+});
 if("IntersectionObserver" in window){
   const observer=new IntersectionObserver(entries=>{
     entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target);}});
   },{threshold:.12});
+  document.documentElement.classList.add("js");
   document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 }else{document.querySelectorAll(".reveal").forEach(el=>el.classList.add("visible"));}
 </script>
