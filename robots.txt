@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sgv-school.vercel.app/sitemap.xml

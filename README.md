@@ -20,6 +20,12 @@ Do not upload only `index.html`; the `assets` folder is required for the crest a
 ## Vercel analytics and performance
 The site includes Vercel Web Analytics and Speed Insights scripts. In the Vercel project dashboard, enable **Analytics** and **Speed Insights**, then deploy the site. Vercel will serve the collection scripts for the deployed site; traffic and Core Web Vitals data appear in their respective dashboards after visitors arrive.
 
+## Search visibility
+- `robots.txt` allows crawling and points crawlers to `sitemap.xml`.
+- The homepage includes canonical and social-sharing metadata plus School structured data using the campus details published on the site.
+- Verify the deployed domain with Google Search Console and Bing Webmaster Tools, then submit `https://sgv-school.vercel.app/sitemap.xml`.
+- Keep campus and admissions information accurate and current. For a custom domain or separate translated pages, update the canonical, sitemap, and language metadata to match the final URLs.
+
 ## Links already configured
 - Google Play: https://play.google.com/store/apps/details?id=com.sgvschool.app&hl=en_IN
 - School map: https://maps.app.goo.gl/m5F2Ss6jADtgurCZ9
